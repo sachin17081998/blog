@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- medium style css -->
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+    
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+    <!-- google gonts -->
+    <title>Document</title>
+</head>
+<body >
+    <!-- navbar -->
+    
+ 
+    <div class="navbar-fixed" >
+      <nav >
+    <div class="nav-wrapper " id="navigation">
+      <a href="{% url 'post_list' %}" class="brand-logo " id='blogi' >Blogi</a>
+      
+       <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+        <i  class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down" >
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'post_new' %}">New Post</a></li>
+          <li><a href="{% url 'post_draft_list' %}">Drafts</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li>Welcome {{user.username}}   </li>
+          {% else %}
+          
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+      </ul>
+      <ul id="" class="right hide-on-med-and-down">
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="https://github.com/">Github</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+  
+ <ul class="sidenav white-text" id='mobile-demo' style="max-width:60vw;">
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'post_new' %}">New Post</a></li>
+    <li><a href="{% url 'post_draft_list' %}">Drafts</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+    <li>Welcome {{user.username}}</li>
+    {% else %}
+    
+    <li><a href="{% url 'login' %}">Login</a></li>
+    {% endif %}
+</ul> 
+<!-- content block     -->
+<div class="content container">
+    <div class="row">
+
+    <div class="col l12 m8 s12">
+        {% block content %}
+        {% endblock %}
+    
+    </div>
+</div>
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <script src="{% static 'blog/js/main.js' %}"></script> 
+         
+</body>
+</html>

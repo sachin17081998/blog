@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="container">
+{% for post in post_list %}
+<div class="card" id='listcard'>
+<h1><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h1>
+<div class="">
+    <!-- template filter -->
+    <p>Published on:{{post.published_date|date:"D M Y"}}</p>
+</div>
+<a href="{% url 'post_detail' pk=post.pk %}">comments:{{ post.approve_comments.count }}</a>
+</div>
+{% endfor %}
+
+</div>
+{% endblock %}

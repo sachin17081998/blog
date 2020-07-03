@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <!-- deletevies gives us adelete object which we can use -->
+    <p>are sure you want to delete {{ object }}</p>
+    <input type="submit" class="btn red" value="delete">
+</form>
+{% endblock %}

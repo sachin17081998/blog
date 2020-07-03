@@ -1,0 +1,50 @@
+
+body{
+    background-color:#3b3b3b;
+}
+#navigation{
+    background-color:rgb(37, 36, 36);
+}
+#blogi{
+    margin-left: 30px;
+    
+}
+#blogi:hover{
+
+    opacity: 0.5;
+}
+#listcard{
+    padding:20px;
+  
+}
+#listcard h1{
+    font-size: 3rem;
+}
+#postcard{
+    padding:0.5rem;
+}
+#postdetail{
+    margin:30px;
+    padding:0.5rem;
+}
+#postdetail h1{
+    font-size: 2.8rem;
+}
+.btn{
+    margin:10px;
+}
+#commentcard{
+    margin:30px;
+    padding:0.5rem;
+}
+
+#commentcard h1{
+    font-size: 2rem;
+}
+@media screen and (max-width:500px){
+    #blogi{
+        margin-left:-10px;
+    
+}
+
+}
